@@ -8,4 +8,5 @@ build
 *.egg-info
 _mailinglist
 .cache/
-
+*.swp
+__pycache__
