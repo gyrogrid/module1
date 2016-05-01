@@ -13,7 +13,7 @@ def index():
 
 @app.route('/dashboard')
 def get_student_data():
-    result = db.mcq.insert_one({
+    result = {
             "instruction": "do it",
             "text": "This is a question",
             "group_id": 1,
@@ -52,10 +52,15 @@ def get_student_data():
             }
         }
 
-    )
+    data_list = []
+    data = db.mcq.find()
+    for datum in data:
+        print(datum, '\n')
 
-    q = db.mcq.find()
-    for ques in q:
-        print(ques["options"])
+        #data_list.append(datum)
+    return jsonify(data_list)
 
-    return jsonify(result)
+@app.route('/question-form')
+def question_form():
+    return render_template('question-form.html')
+
