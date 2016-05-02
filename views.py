@@ -9,7 +9,7 @@ db = dbclient.test
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/dashboard')
 def get_student_data():
